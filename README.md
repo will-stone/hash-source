@@ -32,8 +32,8 @@ import Home from './routes/Home'
 let source = createHashSource()
 let history = createHistory(source)
 
-const App = () => (
-  (
+const App = () => {
+  return (
     <LocationProvider history={history}>
       <header>
         <h1>
@@ -55,7 +55,6 @@ const App = () => (
         <Contact path="contact" />
       </Router>
     </LocationProvider>
-  ),
-  document.getElementById('root')
-)
+  )
+}
 ```
