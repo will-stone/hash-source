@@ -1,0 +1,30 @@
+{
+  "name": "hash-source",
+  "version": "1.0.0",
+  "description": "A hash router source for @reach/router",
+  "repository": "https://github.com/will-stone/hash-source",
+  "main": "src/dist/createHashSource.js",
+  "license": "MIT",
+  "author": "Will Stone <contact@wstone.io>",
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prettier": "prettier --config .prettierrc --write 'src/**/*.{js,ts}'"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@reach/router": "^1.1.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
+  "devDependencies": {
+    "@reach/router": "^1.1.1",
+    "prettier": "^1.14.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4",
+    "typescript": "^3.0.1"
+  }
+}
