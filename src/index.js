@@ -12,10 +12,6 @@ let history = createHistory(source)
 ReactDOM.render(
   <LocationProvider history={history}>
     <header>
-      <h1>
-        <a href="/">Welcome to React</a>
-      </h1>
-
       <nav>
         <Link to="/">Home</Link>
         <Link to="about">About</Link>
