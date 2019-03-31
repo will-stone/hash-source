@@ -1,46 +1,48 @@
-var getHashPath = function () {
-    var href = window.location.href;
-    var hashIndex = href.indexOf('#');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const getHashPath = () => {
+    const href = window.location.href;
+    const hashIndex = href.indexOf('#');
     return hashIndex === -1 ? '' : href.substring(hashIndex + 1);
 };
-var pushHashPath = function (path) { return (window.location.hash = path); };
-var replaceHashPath = function (path) {
-    var hashIndex = window.location.href.indexOf('#');
+const pushHashPath = (path) => (window.location.hash = path);
+const replaceHashPath = (path) => {
+    const hashIndex = window.location.href.indexOf('#');
     window.location.replace(window.location.href.slice(0, hashIndex >= 0 ? hashIndex : 0) + '#' + path);
 };
-var getState = function (path) {
-    var pathname = path ? path : getHashPath();
-    return { pathname: pathname, search: '' };
+const getState = (path) => {
+    const pathname = path ? path : getHashPath();
+    return { pathname, search: '' };
 };
-var resolveInitialState = function (state) {
+const resolveInitialState = state => {
     if (state.pathname === '') {
         replaceHashPath('/');
     }
 };
-var createHashSource = function () {
-    var state = getState();
+const createHashSource = () => {
+    let state = getState();
     resolveInitialState(state);
     return {
         get location() {
             return getState();
         },
-        addEventListener: function (name, fn) {
+        addEventListener(name, fn) {
             window.addEventListener(name, fn);
         },
-        removeEventListener: function (name, fn) {
+        removeEventListener(name, fn) {
             window.removeEventListener(name, fn);
         },
         history: {
-            state: state,
-            pushState: function (stateObj, _, uri) {
+            state,
+            pushState(stateObj, _, uri) {
                 state = getState(uri);
                 pushHashPath(uri);
             },
-            replaceState: function (stateObj, _, uri) {
+            replaceState(stateObj, _, uri) {
                 state = getState(uri);
                 replaceHashPath(uri);
             },
         },
     };
 };
-export default createHashSource;
+exports.default = createHashSource;
