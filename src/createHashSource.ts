@@ -14,7 +14,7 @@ const replaceHashPath = (path: string) => {
   const hashIndex = window.location.href.indexOf('#')
 
   window.location.replace(
-    window.location.href.slice(0, hashIndex >= 0 ? hashIndex : 0) + '#' + path
+    window.location.href.slice(0, hashIndex >= 0 ? hashIndex : 0) + '#' + path,
   )
 }
 
@@ -23,7 +23,7 @@ const getState = (path?: string) => {
   return { pathname, search: '' }
 }
 
-const resolveInitialState = state => {
+const resolveInitialState = (state: { pathname: string; search?: string }) => {
   if (state.pathname === '') {
     replaceHashPath('/')
   }
@@ -38,19 +38,19 @@ const createHashSource = () => {
     get location() {
       return getState()
     },
-    addEventListener(name, fn) {
+    addEventListener(name: any, fn: (this: Window, ev: any) => any) {
       window.addEventListener(name, fn)
     },
-    removeEventListener(name, fn) {
+    removeEventListener(name: any, fn: (this: Window, ev: any) => any) {
       window.removeEventListener(name, fn)
     },
     history: {
       state,
-      pushState(stateObj, _, uri) {
+      pushState(stateObj: any, _: any, uri: string) {
         state = getState(uri)
         pushHashPath(uri)
       },
-      replaceState(stateObj, _, uri) {
+      replaceState(stateObj: any, _: any, uri: string) {
         state = getState(uri)
         replaceHashPath(uri)
       },

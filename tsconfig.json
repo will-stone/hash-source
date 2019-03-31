@@ -4,6 +4,7 @@
     "alwaysStrict": true,
     "outDir": "./src/dist",
     "module": "CommonJS",
-    "removeComments": true
+    "removeComments": true,
+    "declaration": true
   }
 }

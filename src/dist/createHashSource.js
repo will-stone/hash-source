@@ -14,7 +14,7 @@ const getState = (path) => {
     const pathname = path ? path : getHashPath();
     return { pathname, search: '' };
 };
-const resolveInitialState = state => {
+const resolveInitialState = (state) => {
     if (state.pathname === '') {
         replaceHashPath('/');
     }
