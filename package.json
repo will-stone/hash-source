@@ -1,6 +1,6 @@
 {
   "name": "hash-source",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A hash router source for @reach/router",
   "repository": "https://github.com/will-stone/hash-source",
   "license": "MIT",

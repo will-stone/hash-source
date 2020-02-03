@@ -1,3 +1,11 @@
+# DEPRECATED
+
+This project is no longer being maintained, and I'm no longer fixing bugs. With
+[the announcement](https://reacttraining.com/blog/reach-react-router-future/)
+that Reach Router is being merged into React Router, this project is no longer
+required and I suggest you move over to React Router. Please contact me if you
+would like to adopt this project. You can also fork it on GitHub.
+
 # Hash Source
 
 This is an addon for [Reach Router](https://reach.tech/router) to allow you to
